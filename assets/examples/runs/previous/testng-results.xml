@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="5" failed="2" skipped="0">
+  <suite name="UI Regression" duration-ms="35410" started-at="2026-10-22T09:10:00 GET" finished-at="2026-10-22T09:10:35 GET">
+    <test name="Events UI" duration-ms="35410" started-at="2026-10-22T09:10:00 GET" finished-at="2026-10-22T09:10:35 GET">
+
+      <class name="com.acme.events.ui.CreateEventUiTest">
+        <test-method is-config="true" signature="openBrowser()" name="openBrowser" status="PASS" duration-ms="1790" started-at="2026-10-22T09:10:00 GET" finished-at="2026-10-22T09:10:01 GET"/>
+        <test-method signature="createsEventFromForm()" name="createsEventFromForm" status="PASS" duration-ms="3120" started-at="2026-10-22T09:10:02 GET" finished-at="2026-10-22T09:10:05 GET"/>
+        <test-method signature="createsEventWithCover()" name="createsEventWithCover" status="PASS" duration-ms="3544" started-at="2026-10-22T09:10:06 GET" finished-at="2026-10-22T09:10:09 GET"/>
+        <test-method signature="cancelReturnsToList()" name="cancelReturnsToList" status="FAIL" duration-ms="1180" started-at="2026-10-22T09:10:10 GET" finished-at="2026-10-22T09:10:11 GET">
+          <exception class="com.microsoft.playwright.PlaywrightException">
+            <message><![CDATA[Error {
+  message='Error: strict mode violation: locator("button:has-text('Cancel')") resolved to 2 elements]]></message>
+            <full-stacktrace><![CDATA[com.microsoft.playwright.PlaywrightException: Error {
+  message='Error: strict mode violation: locator("button:has-text('Cancel')") resolved to 2 elements
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.acme.events.ui.pages.CreateEventPage.cancel(CreateEventPage.java:58)
+	at com.acme.events.ui.CreateEventUiTest.cancelReturnsToList(CreateEventUiTest.java:88)]]></full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method signature="listShowsNewEvent()" name="listShowsNewEvent" status="PASS" duration-ms="1650" started-at="2026-10-22T09:10:12 GET" finished-at="2026-10-22T09:10:13 GET"/>
+        <test-method signature="validatesRequiredName()" name="validatesRequiredName" status="FAIL" duration-ms="5020" started-at="2026-10-22T09:10:14 GET" finished-at="2026-10-22T09:10:19 GET">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message><![CDATA[Locator expected to be visible
+Call log:
+  - waiting for locator("[data-test=name-error]")]]></message>
+            <full-stacktrace><![CDATA[org.opentest4j.AssertionFailedError: Locator expected to be visible
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:59)
+	at com.acme.events.ui.pages.CreateEventPage.shouldShowNameError(CreateEventPage.java:64)
+	at com.acme.events.ui.CreateEventUiTest.validatesRequiredName(CreateEventUiTest.java:120)]]></full-stacktrace>
+          </exception>
+        </test-method>
+      </class>
+
+      <class name="com.acme.events.ui.AdminDashboardUiTest">
+        <test-method is-config="true" signature="loginAsAdmin()" name="loginAsAdmin" status="PASS" duration-ms="2210" started-at="2026-10-22T09:10:20 GET" finished-at="2026-10-22T09:10:22 GET"/>
+        <test-method signature="showsAllEvents()" name="showsAllEvents" status="PASS" duration-ms="2900" started-at="2026-10-22T09:10:23 GET" finished-at="2026-10-22T09:10:26 GET"/>
+        <test-method signature="canArchiveEvent()" name="canArchiveEvent" status="PASS" duration-ms="3400" started-at="2026-10-22T09:10:27 GET" finished-at="2026-10-22T09:10:30 GET"/>
+      </class>
+
+    </test>
+  </suite>
+</testng-results>

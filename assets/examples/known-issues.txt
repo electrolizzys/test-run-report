@@ -1,0 +1,1 @@
+com.acme.events.ui.CreateEventUiTest#cancelReturnsToList | QA-212 | ambiguous Cancel locator, fix in progress

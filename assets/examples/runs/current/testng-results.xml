@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="2" failed="3" skipped="3">
+  <suite name="UI Regression" duration-ms="41230" started-at="2026-10-23T09:10:00 GET" finished-at="2026-10-23T09:10:41 GET">
+    <test name="Events UI" duration-ms="41230" started-at="2026-10-23T09:10:00 GET" finished-at="2026-10-23T09:10:41 GET">
+
+      <class name="com.acme.events.ui.CreateEventUiTest">
+        <test-method is-config="true" signature="openBrowser()" name="openBrowser" status="PASS" duration-ms="1830" started-at="2026-10-23T09:10:00 GET" finished-at="2026-10-23T09:10:01 GET"/>
+        <test-method signature="createsEventFromForm()" name="createsEventFromForm" status="FAIL" duration-ms="6120" started-at="2026-10-23T09:10:02 GET" finished-at="2026-10-23T09:10:08 GET">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message><![CDATA[Locator expected to have text: Event created
+Received: Something went wrong. Please try again.
+Call log:
+  - Locator.expect.toHaveText with timeout 5000ms
+  - waiting for locator("[data-test=toast]")
+    9 x locator resolved to <div role="alert" data-test="toast">Something went wrong. Please try again.</div>]]></message>
+            <full-stacktrace><![CDATA[org.opentest4j.AssertionFailedError: Locator expected to have text: Event created
+Received: Something went wrong. Please try again.
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:59)
+	at com.microsoft.playwright.impl.LocatorAssertionsImpl.hasText(LocatorAssertionsImpl.java:178)
+	at com.acme.events.ui.pages.CreateEventPage.shouldShowToast(CreateEventPage.java:41)
+	at com.acme.events.ui.CreateEventUiTest.createsEventFromForm(CreateEventUiTest.java:52)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)]]></full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line><![CDATA[Opened http://localhost:3000/events/new]]></line>
+            <line><![CDATA[Filled name=UI Event 4410, capacity=25, date=2026-11-02]]></line>
+            <line><![CDATA[POST http://localhost:3000/api/v1/events -> 500]]></line>
+          </reporter-output>
+        </test-method>
+        <test-method signature="createsEventWithCover()" name="createsEventWithCover" status="FAIL" duration-ms="6544" started-at="2026-10-23T09:10:09 GET" finished-at="2026-10-23T09:10:15 GET">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message><![CDATA[Locator expected to have text: Event created
+Received: Something went wrong. Please try again.]]></message>
+            <full-stacktrace><![CDATA[org.opentest4j.AssertionFailedError: Locator expected to have text: Event created
+Received: Something went wrong. Please try again.
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:59)
+	at com.acme.events.ui.pages.CreateEventPage.shouldShowToast(CreateEventPage.java:41)
+	at com.acme.events.ui.CreateEventUiTest.createsEventWithCover(CreateEventUiTest.java:71)]]></full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line><![CDATA[POST http://localhost:3000/api/v1/events -> 500]]></line>
+          </reporter-output>
+        </test-method>
+        <test-method signature="cancelReturnsToList()" name="cancelReturnsToList" status="FAIL" duration-ms="1220" started-at="2026-10-23T09:10:16 GET" finished-at="2026-10-23T09:10:17 GET">
+          <exception class="com.microsoft.playwright.PlaywrightException">
+            <message><![CDATA[Error {
+  message='Error: strict mode violation: locator("button:has-text('Cancel')") resolved to 2 elements
+  name='Error'
+  stack='Error: strict mode violation']]></message>
+            <full-stacktrace><![CDATA[com.microsoft.playwright.PlaywrightException: Error {
+  message='Error: strict mode violation: locator("button:has-text('Cancel')") resolved to 2 elements
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.acme.events.ui.pages.CreateEventPage.cancel(CreateEventPage.java:58)
+	at com.acme.events.ui.CreateEventUiTest.cancelReturnsToList(CreateEventUiTest.java:88)]]></full-stacktrace>
+          </exception>
+        </test-method>
+        <!-- retried by RetryAnalyzer: first attempt failed, second passed -> flaky -->
+        <test-method signature="listShowsNewEvent()" name="listShowsNewEvent" status="SKIP" retried="true" duration-ms="5011" started-at="2026-10-23T09:10:18 GET" finished-at="2026-10-23T09:10:23 GET">
+          <exception class="com.microsoft.playwright.TimeoutError">
+            <message><![CDATA[Error {
+  message='Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for locator("#event-list li").first()']]></message>
+            <full-stacktrace><![CDATA[com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 5000ms exceeded.
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.acme.events.ui.pages.EventListPage.firstEvent(EventListPage.java:23)
+	at com.acme.events.ui.CreateEventUiTest.listShowsNewEvent(CreateEventUiTest.java:101)]]></full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method signature="listShowsNewEvent()" name="listShowsNewEvent" status="PASS" duration-ms="1702" started-at="2026-10-23T09:10:24 GET" finished-at="2026-10-23T09:10:25 GET"/>
+        <test-method signature="validatesRequiredName()" name="validatesRequiredName" status="PASS" duration-ms="980" started-at="2026-10-23T09:10:26 GET" finished-at="2026-10-23T09:10:27 GET"/>
+      </class>
+
+      <class name="com.acme.events.ui.AdminDashboardUiTest">
+        <test-method is-config="true" signature="loginAsAdmin()" name="loginAsAdmin" status="FAIL" duration-ms="10012" started-at="2026-10-23T09:10:28 GET" finished-at="2026-10-23T09:10:38 GET">
+          <exception class="com.microsoft.playwright.PlaywrightException">
+            <message><![CDATA[Error {
+  message='net::ERR_CONNECTION_REFUSED at http://localhost:3001/admin/login
+=========================== logs ===========================
+navigating to "http://localhost:3001/admin/login", waiting until "load"']]></message>
+            <full-stacktrace><![CDATA[com.microsoft.playwright.PlaywrightException: Error {
+  message='net::ERR_CONNECTION_REFUSED at http://localhost:3001/admin/login
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.PageImpl.navigate(PageImpl.java:900)
+	at com.acme.events.ui.pages.AdminLoginPage.open(AdminLoginPage.java:19)
+	at com.acme.events.ui.AdminDashboardUiTest.loginAsAdmin(AdminDashboardUiTest.java:30)]]></full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method signature="showsAllEvents()" name="showsAllEvents" status="SKIP" duration-ms="0" started-at="2026-10-23T09:10:39 GET" finished-at="2026-10-23T09:10:39 GET"/>
+        <test-method signature="canArchiveEvent()" name="canArchiveEvent" status="SKIP" duration-ms="0" started-at="2026-10-23T09:10:39 GET" finished-at="2026-10-23T09:10:39 GET"/>
+      </class>
+
+    </test>
+  </suite>
+</testng-results>

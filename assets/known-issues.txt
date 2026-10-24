@@ -1,0 +1,7 @@
+# Known issues — failures the team already knows about and has a ticket for.
+# One per line:  <test id OR text that appears in the failure signature> | <ticket> | <note>
+# The agent never adds lines here on its own; a human confirms each entry.
+#
+# Examples:
+# com.acme.events.ui.CreateEventUiTest#cancelReturnsToList | QA-212 | ambiguous Cancel locator, fix in progress
+# strict mode violation | QA-212 | ambiguous locators after the new dialog was added

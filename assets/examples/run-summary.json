@@ -1,0 +1,207 @@
+{
+  "summary": {
+    "suites": [
+      "UI Regression"
+    ],
+    "format": "testng",
+    "started": "2026-10-23T09:10:00 GET",
+    "finished": "2026-10-23T09:10:41 GET",
+    "duration_s": 41.2,
+    "total": 7,
+    "passed": 2,
+    "failed": 3,
+    "skipped": 2,
+    "flaky": 1,
+    "config_failures": 1,
+    "pass_rate": 28.6,
+    "executed_pass_rate": 40.0
+  },
+  "by_class": [
+    {
+      "class": "com.acme.events.ui.CreateEventUiTest",
+      "total": 5,
+      "passed": 2,
+      "failed": 3,
+      "skipped": 0
+    },
+    {
+      "class": "com.acme.events.ui.AdminDashboardUiTest",
+      "total": 2,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  ],
+  "failures": [
+    {
+      "id": "com.acme.events.ui.AdminDashboardUiTest#loginAsAdmin",
+      "class": "com.acme.events.ui.AdminDashboardUiTest",
+      "method": "loginAsAdmin",
+      "status": "FAIL",
+      "kind": "config-failure",
+      "duration_s": 10.012,
+      "exception": "com.microsoft.playwright.PlaywrightException",
+      "message": "net::ERR_CONNECTION_REFUSED at http://localhost:3001/admin/login",
+      "project_frame": "AdminLoginPage.open",
+      "signature": "PlaywrightException @ AdminLoginPage.open :: net::ERR_CONNECTION_REFUSED at http://localhost:<n>/admin/login",
+      "skipped_dependents": [
+        "com.acme.events.ui.AdminDashboardUiTest#showsAllEvents",
+        "com.acme.events.ui.AdminDashboardUiTest#canArchiveEvent"
+      ],
+      "known_issue": null
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#createsEventFromForm",
+      "class": "com.acme.events.ui.CreateEventUiTest",
+      "method": "createsEventFromForm",
+      "status": "FAIL",
+      "kind": "FAIL",
+      "duration_s": 6.12,
+      "exception": "org.opentest4j.AssertionFailedError",
+      "message": "Locator expected to have text: Event created",
+      "project_frame": "CreateEventPage.shouldShowToast",
+      "signature": "AssertionFailedError @ CreateEventPage.shouldShowToast :: Locator expected to have text: Event created",
+      "known_issue": null
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#createsEventWithCover",
+      "class": "com.acme.events.ui.CreateEventUiTest",
+      "method": "createsEventWithCover",
+      "status": "FAIL",
+      "kind": "FAIL",
+      "duration_s": 6.544,
+      "exception": "org.opentest4j.AssertionFailedError",
+      "message": "Locator expected to have text: Event created",
+      "project_frame": "CreateEventPage.shouldShowToast",
+      "signature": "AssertionFailedError @ CreateEventPage.shouldShowToast :: Locator expected to have text: Event created",
+      "known_issue": null
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#cancelReturnsToList",
+      "class": "com.acme.events.ui.CreateEventUiTest",
+      "method": "cancelReturnsToList",
+      "status": "FAIL",
+      "kind": "FAIL",
+      "duration_s": 1.22,
+      "exception": "com.microsoft.playwright.PlaywrightException",
+      "message": "Error: strict mode violation: locator(\"button:has-text(",
+      "project_frame": "CreateEventPage.cancel",
+      "signature": "PlaywrightException @ CreateEventPage.cancel :: Error: strict mode violation: locator(\"button:has-text(",
+      "known_issue": {
+        "ticket": "QA-212",
+        "note": "ambiguous Cancel locator, fix in progress"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "signature": "PlaywrightException @ AdminLoginPage.open :: net::ERR_CONNECTION_REFUSED at http://localhost:<n>/admin/login",
+      "tests": [
+        "com.acme.events.ui.AdminDashboardUiTest#loginAsAdmin"
+      ],
+      "count": 1,
+      "exception": "com.microsoft.playwright.PlaywrightException",
+      "project_frame": "AdminLoginPage.open",
+      "sample_message": "net::ERR_CONNECTION_REFUSED at http://localhost:3001/admin/login",
+      "config_failure": true,
+      "skipped_dependents": 2,
+      "known_issue": null
+    },
+    {
+      "signature": "AssertionFailedError @ CreateEventPage.shouldShowToast :: Locator expected to have text: Event created",
+      "tests": [
+        "com.acme.events.ui.CreateEventUiTest#createsEventFromForm",
+        "com.acme.events.ui.CreateEventUiTest#createsEventWithCover"
+      ],
+      "count": 2,
+      "exception": "org.opentest4j.AssertionFailedError",
+      "project_frame": "CreateEventPage.shouldShowToast",
+      "sample_message": "Locator expected to have text: Event created",
+      "config_failure": false,
+      "skipped_dependents": 0,
+      "known_issue": null
+    },
+    {
+      "signature": "PlaywrightException @ CreateEventPage.cancel :: Error: strict mode violation: locator(\"button:has-text(",
+      "tests": [
+        "com.acme.events.ui.CreateEventUiTest#cancelReturnsToList"
+      ],
+      "count": 1,
+      "exception": "com.microsoft.playwright.PlaywrightException",
+      "project_frame": "CreateEventPage.cancel",
+      "sample_message": "Error: strict mode violation: locator(\"button:has-text(",
+      "config_failure": false,
+      "skipped_dependents": 0,
+      "known_issue": {
+        "ticket": "QA-212",
+        "note": "ambiguous Cancel locator, fix in progress"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "id": "com.acme.events.ui.AdminDashboardUiTest#showsAllEvents",
+      "because": "com.acme.events.ui.AdminDashboardUiTest#loginAsAdmin"
+    },
+    {
+      "id": "com.acme.events.ui.AdminDashboardUiTest#canArchiveEvent",
+      "because": "com.acme.events.ui.AdminDashboardUiTest#loginAsAdmin"
+    }
+  ],
+  "flaky": [
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#listShowsNewEvent",
+      "attempts": 2,
+      "message": "Timeout 5000ms exceeded.",
+      "known_issue": null
+    }
+  ],
+  "slowest": [
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#listShowsNewEvent",
+      "duration_s": 6.713,
+      "status": "PASS"
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#createsEventWithCover",
+      "duration_s": 6.544,
+      "status": "FAIL"
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#createsEventFromForm",
+      "duration_s": 6.12,
+      "status": "FAIL"
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#cancelReturnsToList",
+      "duration_s": 1.22,
+      "status": "FAIL"
+    },
+    {
+      "id": "com.acme.events.ui.CreateEventUiTest#validatesRequiredName",
+      "duration_s": 0.98,
+      "status": "PASS"
+    }
+  ],
+  "comparison": {
+    "new_failures": [
+      "com.acme.events.ui.CreateEventUiTest#createsEventFromForm",
+      "com.acme.events.ui.CreateEventUiTest#createsEventWithCover"
+    ],
+    "fixed": [
+      "com.acme.events.ui.CreateEventUiTest#validatesRequiredName"
+    ],
+    "still_failing": [
+      "com.acme.events.ui.CreateEventUiTest#cancelReturnsToList"
+    ],
+    "newly_skipped": [
+      "com.acme.events.ui.AdminDashboardUiTest#canArchiveEvent",
+      "com.acme.events.ui.AdminDashboardUiTest#showsAllEvents"
+    ],
+    "new_tests": [],
+    "removed_tests": [],
+    "previous_total": 7,
+    "previous_executed_pass_rate": 71.4,
+    "executed_pass_rate_delta": -31.4
+  }
+}
